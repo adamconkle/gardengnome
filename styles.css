@@ -1,4 +1,28 @@
-/* Add to your existing styles */
+/* Basic CSS for styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #4CAF50;
+}
 
 .form-section {
     margin-top: 30px;
@@ -28,4 +52,22 @@ button {
 
 button:hover {
     background-color: #45a049;
+}
+
+.garden-info {
+    margin-top: 40px;
+}
+
+.garden-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.buttons {
+    margin-top: 30px;
+    text-align: center;
+}
+
+input[type="file"] {
+    display: none;
 }
