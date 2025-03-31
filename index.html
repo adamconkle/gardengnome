@@ -7,26 +7,25 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+    <div class="container">
         <h1>Garden Knome</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+        
+        <div class="garden-info">
+            <h2>My Garden</h2>
+            <div id="gardenData">
+                <!-- Display garden data here -->
+            </div>
+        </div>
 
-    <main>
-        <section>
-            <h2>Main Content</h2>
-            <p>This is a simple HTML template to start your project.</p>
-        </section>
-    </main>
+        <div class="buttons">
+            <button onclick="exportData()">Export Garden Data</button>
+            <button onclick="document.getElementById('importFile').click()">Import Garden Data</button>
+        </div>
 
-    <footer>
-        <p>&copy; 2025 Garden Knome. All rights reserved.</p>
-    </footer>
+        <input type="file" id="importFile" style="display: none;" />
+
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
