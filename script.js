@@ -1,4 +1,4 @@
-// Example plant data with ideal temperatures and sunlight requirements
+// Expanded plant data with ideal temperatures and sunlight requirements
 const plantData = {
     tomato: {
         plantDate: "March 15",
@@ -34,6 +34,76 @@ const plantData = {
         waterSchedule: "Every 2 days",
         idealTemperature: "65-85°F",
         sunlight: "Full Sun (6+ hours daily)"
+    },
+    spinach: {
+        plantDate: "March 5",
+        harvestDate: "June 5",
+        waterSchedule: "Every 3 days",
+        idealTemperature: "50-60°F",
+        sunlight: "Partial Shade (3-5 hours daily)"
+    },
+    peppers: {
+        plantDate: "April 15",
+        harvestDate: "August 15",
+        waterSchedule: "Every 3 days",
+        idealTemperature: "70-85°F",
+        sunlight: "Full Sun (6+ hours daily)"
+    },
+    onion: {
+        plantDate: "April 5",
+        harvestDate: "July 5",
+        waterSchedule: "Every 3 days",
+        idealTemperature: "55-75°F",
+        sunlight: "Full Sun (6+ hours daily)"
+    },
+    garlic: {
+        plantDate: "October 15",
+        harvestDate: "July 15",
+        waterSchedule: "Every 4 days",
+        idealTemperature: "50-60°F",
+        sunlight: "Full Sun (6+ hours daily)"
+    },
+    parsley: {
+        plantDate: "April 5",
+        harvestDate: "July 5",
+        waterSchedule: "Every 2 days",
+        idealTemperature: "55-70°F",
+        sunlight: "Full Sun (6+ hours daily)"
+    },
+    mint: {
+        plantDate: "April 10",
+        harvestDate: "July 10",
+        waterSchedule: "Every 3 days",
+        idealTemperature: "60-75°F",
+        sunlight: "Partial Shade (3-5 hours daily)"
+    },
+    zucchini: {
+        plantDate: "April 5",
+        harvestDate: "July 5",
+        waterSchedule: "Every 3 days",
+        idealTemperature: "70-85°F",
+        sunlight: "Full Sun (6+ hours daily)"
+    },
+    potato: {
+        plantDate: "March 25",
+        harvestDate: "August 25",
+        waterSchedule: "Every 4 days",
+        idealTemperature: "55-75°F",
+        sunlight: "Full Sun (6+ hours daily)"
+    },
+    eggplant: {
+        plantDate: "April 5",
+        harvestDate: "August 5",
+        waterSchedule: "Every 3 days",
+        idealTemperature: "70-85°F",
+        sunlight: "Full Sun (6+ hours daily)"
+    },
+    broccoli: {
+        plantDate: "March 15",
+        harvestDate: "July 15",
+        waterSchedule: "Every 3 days",
+        idealTemperature: "55-75°F",
+        sunlight: "Full Sun (6+ hours daily)"
     }
 };
 
@@ -61,7 +131,7 @@ function generateGardenSchedule(plants) {
     return plants.map(plant => {
         const schedule = plantData[plant] || {};
         return {
-            ...schedule,
+            name: plant,
             plantDate: schedule.plantDate || "Unknown",
             harvestDate: schedule.harvestDate || "Unknown",
             waterSchedule: schedule.waterSchedule || "Unknown",
@@ -87,11 +157,12 @@ function displayGardenData() {
             <ul>
                 ${data.gardenSchedule.map(schedule => `
                     <li>
-                        <strong>${schedule.plantDate} - Plant:</strong> ${schedule.plantDate} | 
-                        <strong>${schedule.harvestDate} - Harvest:</strong> ${schedule.harvestDate} |
-                        <strong>Water:</strong> ${schedule.waterSchedule} |
-                        <strong>Temperature:</strong> ${schedule.idealTemperature} |
-                        <strong>Sunlight:</strong> ${schedule.sunlight}
+                        <strong>${schedule.name}:</strong> 
+                        <br>Plant: ${schedule.plantDate} | 
+                        Harvest: ${schedule.harvestDate} |
+                        Water: ${schedule.waterSchedule} |
+                        Temperature: ${schedule.idealTemperature} |
+                        Sunlight: ${schedule.sunlight}
                     </li>
                 `).join('')}
             </ul>
