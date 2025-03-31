@@ -129,17 +129,30 @@ function saveUserPreferences() {
 // Example of garden scheduling based on plants
 function generateGardenSchedule(plants) {
     return plants.map(plant => {
-        const schedule = plantData[plant] || {};
+        const schedule = plantData[plant]; // Retrieve the plant data
+
+        if (!schedule) {
+            return {
+                name: plant || "Unknown Plant",
+                plantDate: "Unknown",
+                harvestDate: "Unknown",
+                waterSchedule: "Unknown",
+                idealTemperature: "Unknown",
+                sunlight: "Unknown"
+            };
+        }
+
         return {
-            name: plant,
-            plantDate: schedule.plantDate || "Unknown",
-            harvestDate: schedule.harvestDate || "Unknown",
-            waterSchedule: schedule.waterSchedule || "Unknown",
-            idealTemperature: schedule.idealTemperature || "Unknown",
-            sunlight: schedule.sunlight || "Unknown"
+            name: plant, // Now it will display the correct plant name
+            plantDate: schedule.plantDate,
+            harvestDate: schedule.harvestDate,
+            waterSchedule: schedule.waterSchedule,
+            idealTemperature: schedule.idealTemperature,
+            sunlight: schedule.sunlight
         };
     });
 }
+
 
 // Display the saved garden data
 function displayGardenData() {
