@@ -10,6 +10,29 @@
     <div class="container">
         <h1>My Garden Knome</h1>
         
+        <div class="form-section">
+            <h2>Enter Your Garden Details</h2>
+            <!-- Location Input -->
+            <label for="location">Your Location (City, State):</label>
+            <input type="text" id="location" placeholder="e.g., New York, NY" />
+
+            <!-- Plant Selection (Example with 2 plants) -->
+            <label for="plants">Choose Plants to Grow:</label>
+            <select id="plants" multiple>
+                <option value="tomato">Tomato</option>
+                <option value="basil">Basil</option>
+                <option value="carrot">Carrot</option>
+                <option value="lettuce">Lettuce</option>
+                <option value="cucumber">Cucumber</option>
+            </select>
+
+            <!-- Meal Preferences Input -->
+            <label for="meals">Meal Preferences (Comma separated):</label>
+            <input type="text" id="meals" placeholder="e.g., vegan, gluten-free" />
+
+            <button onclick="saveUserPreferences()">Save Preferences</button>
+        </div>
+
         <div class="garden-info">
             <h2>My Garden</h2>
             <div id="gardenData">
@@ -23,7 +46,6 @@
         </div>
 
         <input type="file" id="importFile" style="display: none;" />
-
     </div>
 
     <script src="script.js"></script>
