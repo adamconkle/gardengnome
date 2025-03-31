@@ -1,3 +1,42 @@
+// Example plant data with ideal temperatures and sunlight requirements
+const plantData = {
+    tomato: {
+        plantDate: "March 15",
+        harvestDate: "August 15",
+        waterSchedule: "Every 3 days",
+        idealTemperature: "70-85°F",
+        sunlight: "Full Sun (6+ hours daily)"
+    },
+    basil: {
+        plantDate: "April 1",
+        harvestDate: "July 1",
+        waterSchedule: "Every 2 days",
+        idealTemperature: "65-85°F",
+        sunlight: "Full Sun (6+ hours daily)"
+    },
+    carrot: {
+        plantDate: "March 10",
+        harvestDate: "July 10",
+        waterSchedule: "Every 4 days",
+        idealTemperature: "55-75°F",
+        sunlight: "Full Sun (6+ hours daily)"
+    },
+    lettuce: {
+        plantDate: "March 20",
+        harvestDate: "June 20",
+        waterSchedule: "Every 3 days",
+        idealTemperature: "50-70°F",
+        sunlight: "Partial Shade (3-5 hours daily)"
+    },
+    cucumber: {
+        plantDate: "April 10",
+        harvestDate: "July 10",
+        waterSchedule: "Every 2 days",
+        idealTemperature: "65-85°F",
+        sunlight: "Full Sun (6+ hours daily)"
+    }
+};
+
 // Save user preferences to localStorage
 function saveUserPreferences() {
     const location = document.getElementById('location').value;
@@ -19,16 +58,17 @@ function saveUserPreferences() {
 
 // Example of garden scheduling based on plants
 function generateGardenSchedule(plants) {
-    const schedules = {
-        tomato: { plantDate: "March 15", harvestDate: "August 15", waterSchedule: "Every 3 days" },
-        basil: { plantDate: "April 1", harvestDate: "July 1", waterSchedule: "Every 2 days" },
-        carrot: { plantDate: "March 10", harvestDate: "July 10", waterSchedule: "Every 4 days" },
-        lettuce: { plantDate: "March 20", harvestDate: "June 20", waterSchedule: "Every 3 days" },
-        cucumber: { plantDate: "April 10", harvestDate: "July 10", waterSchedule: "Every 2 days" }
-    };
-
-    // Generate a schedule for selected plants
-    return plants.map(plant => schedules[plant] || { plantDate: "Unknown", harvestDate: "Unknown", waterSchedule: "Unknown" });
+    return plants.map(plant => {
+        const schedule = plantData[plant] || {};
+        return {
+            ...schedule,
+            plantDate: schedule.plantDate || "Unknown",
+            harvestDate: schedule.harvestDate || "Unknown",
+            waterSchedule: schedule.waterSchedule || "Unknown",
+            idealTemperature: schedule.idealTemperature || "Unknown",
+            sunlight: schedule.sunlight || "Unknown"
+        };
+    });
 }
 
 // Display the saved garden data
@@ -46,7 +86,13 @@ function displayGardenData() {
             <p><strong>Garden Schedule:</strong></p>
             <ul>
                 ${data.gardenSchedule.map(schedule => `
-                    <li>${schedule.plantDate} - Plant | ${schedule.harvestDate} - Harvest | Water: ${schedule.waterSchedule}</li>
+                    <li>
+                        <strong>${schedule.plantDate} - Plant:</strong> ${schedule.plantDate} | 
+                        <strong>${schedule.harvestDate} - Harvest:</strong> ${schedule.harvestDate} |
+                        <strong>Water:</strong> ${schedule.waterSchedule} |
+                        <strong>Temperature:</strong> ${schedule.idealTemperature} |
+                        <strong>Sunlight:</strong> ${schedule.sunlight}
+                    </li>
                 `).join('')}
             </ul>
         `;
