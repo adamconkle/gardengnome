@@ -240,3 +240,14 @@ window.onload = function () {
 
 // Listen for file import
 document.getElementById('importFile').addEventListener('change', importData);
+
+
+
+/* ADD THE FOLLOWING ...
+
+const hardinessZone = ["3", "4", "5", "6", "7", "8", "9", "10"];
+check location
+switch hardiness zone
+return hardiness zone
+*/
+
